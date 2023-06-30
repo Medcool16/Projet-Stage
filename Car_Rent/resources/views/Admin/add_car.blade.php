@@ -99,7 +99,7 @@
                         @endforeach
                     </ul>
                 </div>
-    @endif
+                @endif
                 <button type="submit" class="btn btn-primary text-center" style="display: block;">Submit</button>
             </form>
                 </div>

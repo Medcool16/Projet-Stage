@@ -17,20 +17,30 @@ class ModellController extends Controller
     }
 
     public function store(Request $req){
+
+        $this->validate($req,[
+            'model' => 'required',
+            'mark' => 'required'
+        ]);
+
         $new_model = new modell();
 
-        $new_model->model_name = $req->mode;
-        $new_model->id_mark = $req->marque;
+        $new_model->model_name = $req->model;
+        $new_model->id_mark = $req->mark;
 
         $new_model->save();
-        return redirect()->route('model_show');
+        return redirect()->route('model_show')->with([
+            'success' => 'Data inserted successfully'
+        ]);
     }
 
 
     public function delete($id){
         $data = modell::find($id);
         $data->delete();
-        return redirect()->route('model_show');
+        return redirect()->route('model_show')->with([
+            'success' => 'Data deleted successfully'
+        ]);
     }
 
 }

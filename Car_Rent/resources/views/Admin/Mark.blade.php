@@ -6,6 +6,11 @@
 
 
 @section('content')
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+    @endif
 <div class="row">
     <div class="col-md-6">
         <div class="card">
@@ -19,6 +24,15 @@
                   <label  class="form-label">Make a new mark</label>
                   <input type="text" class="form-control" placeholder="Mark name" name="mark">
                 </div>
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
                 <button type="submit" class="btn btn-success">Submit</button>
             </form>
             </div>

@@ -16,11 +16,18 @@ class MarkController extends Controller
     }
 
     public function store(Request $req){
+        $this->validate($req,[
+            'mark' => 'required'
+        ]);
+
+
         $new_mark = new mark();
         $new_mark->mark_name = $req->mark;
 
         $new_mark->save();
-        return redirect()->route('mark_show');
+        return redirect()->route('mark_show')->with([
+            'success' => 'Data inserted successfully'
+        ]);
     }
 
     
@@ -28,7 +35,9 @@ class MarkController extends Controller
         $data = mark::find($id);
         $data->delete();
         
-        return redirect()->route('mark_show');
+        return redirect()->route('mark_show')->with([
+            'success' => 'Data deleted successfully'
+        ]);
     }
 
 }

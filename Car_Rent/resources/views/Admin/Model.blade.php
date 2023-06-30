@@ -6,6 +6,11 @@
 
 
 @section('content')
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+    @endif
 <div class="row">
     <div class="col-md-6">
         <div class="card">
@@ -17,14 +22,23 @@
                 @csrf
                 <div class="mb-3">
                   <label  class="form-label">Model</label>
-                  <input type="text" class="form-control" placeholder="Model name" name="mode">
+                  <input type="text" class="form-control" placeholder="Model name" name="model">
                   <label  class="form-label">Mark</label>
-                  <select class="form-select" name="marque">
+                  <select class="form-select" name="mark">
                     @foreach ($data as $i)
                         <option value="{{ $i->id }}">{{ $i->mark_name }}</option>   
                     @endforeach
                   </select>
                 </div>
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
                 <button type="submit" class="btn btn-success">Submit</button>
             </form>
             </div>
