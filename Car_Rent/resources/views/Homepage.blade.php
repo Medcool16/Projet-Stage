@@ -10,7 +10,7 @@
     <title>Homepage</title>
 </head>
 <body>
-<ul class="nav nav-tabs" id="myTab" role="tablist">
+{{-- <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item" role="presentation">
     <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Home</button>
   </li>
@@ -29,9 +29,11 @@
   <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">...</div>
   <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">...</div>
   <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">...</div>
-</div>
+</div> --}}
 
     <div class="container-fluid">
+      <h1>Client Side </h1>
+      <h4>Coming soon</h4>
     </div>
 </body>
 </html>
