@@ -72,8 +72,16 @@ class CarController extends Controller
         $mark = mark::all();
         return view('Admin.car_update',compact('up','model','mark','fuel','data'));
     }
+//==============================ADD CAR======================================================
 
-
+    public function viewCarAdd(){
+        $fuel = fuel::all();
+        $model = modell::all();
+        $mark = mark::all();
+        $data = car::all();
+        return view('Admin.add_car',compact('data','model','mark','fuel'));
+    }
+//===============================================
     public function update_car(Request $req, $id){
         $up = car::find($id);
 

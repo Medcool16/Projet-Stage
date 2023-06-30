@@ -7,7 +7,12 @@
 
 @section('content')
 <div class="row d-flex">
-    <a href="{{ route('add_car_page') }}" class="btn btn-primary mx-3" style="width: 100px;">Add car</a>
+    @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+    @endif
+    <a href="{{ route('add_page') }}" class="btn btn-primary mx-3" style="width: 100px;">Add car</a>
     <a href="#" class="btn btn-success mx-1" style="width: 100px;">Print</a>
 </div>
 <div class="row">

@@ -57,10 +57,7 @@ Route::get('/download-table', 'CarController@downloadTable')->name('download');
 // ================================Add=====================================
 
 
-Route::get('/cars/add',function(){
-    view('Admin.add_car');
-
-})->name('add_car_page');
+Route::get('/add','CarController@viewCarAdd')->name('add_page');
 
 Route::post('/cars','CarController@store_car_data')->name('store_car');
 
