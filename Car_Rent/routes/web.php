@@ -5,11 +5,6 @@ use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 
-Route::get('/', function () {
-    return view('Homepage');
-});
-
-
 
 
 // --------------Admin-------------------------
@@ -40,8 +35,6 @@ Route::get('/dashboard','DashController@car_rows');
 // ------------------------------------------------
 
 
-
-
 // --------------Cars-------------------------------------
 
 Route::get('/cars',function(){
@@ -49,7 +42,6 @@ Route::get('/cars',function(){
 });
 
 Route::get('/cars','CarController@show')->name('back_car');
-
 
 
 Route::get('/download-table', 'CarController@downloadTable')->name('download');
@@ -86,11 +78,6 @@ Route::get('/clients',function(){
 Route::get('/clients','ClientController@show_clients');
 
 // --------------------------------------------------------
-
-
-
-
-
 
 // --------------Mark-------------------------------------
 
@@ -147,12 +134,15 @@ Route::delete('/fuels/{id}','FuelController@remove_fuel')->name('remove_fuel');
 // --------------------------------------------------------
 
 
-
-
-
 // ------------------------Tables--------------------------------------
 
 //----------------------car--------------------
 Route::get('/admin/tables','CarController@car_table');
 
 // --------------------------------------------------------------
+
+
+//[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[---- CLIENT SIDE ----]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
+
+Route::get('/home','home@test');
+Route::get('/specials','home@test2');

@@ -32,6 +32,6 @@ class AdminController extends Controller
 
     public function destroy(){
         Session::forget('name');
-        return view('Homepage');
+        return view('Client.home');
     }
 }
