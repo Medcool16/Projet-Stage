@@ -12,6 +12,9 @@
     <title>@yield('title')</title>
 
     @yield('style')
+    <style>
+      
+    </style>
 
 </head>
 
@@ -23,9 +26,9 @@
         <a class="navbar-brand mx-lg-5" href="#"><img src="/images/carlogo.png"></a>
       </div>
   
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-      </button>
+      </button>      
   
       <div class="collapse navbar-collapse justify-content-center" id="navbarTogglerDemo03">
         <ul class="navbar-nav">
@@ -45,6 +48,9 @@
             <a class="nav-link text-light" href="#" >Contact</a>
           </li>
         </ul>
+      </div>
+      <div class="ml-auto">
+        <a href="#" class="btn btn-outline-info">Login</a>
       </div>
     </div>
   </nav>

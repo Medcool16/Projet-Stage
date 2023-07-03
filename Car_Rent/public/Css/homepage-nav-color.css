@@ -41,9 +41,21 @@
   left: 0;
 }
 
+@media (max-width: 991.98px) {
+  .navbar-nav {
+    width: 100%;
+    text-align: center;
+  }
+  .navbar-nav .nav-link {
+    display: block;
+    text-align: center;
+  }
+}
 
 
-/* ----------------Navbar------------------ */
+
+
+/* ---------------------------------- */
 
 
 /* #151f32 */
@@ -108,3 +120,13 @@
 /* ----------Quote--------------- */
 
 
+.sec2{
+  height: 100vh;
+}
+.card{
+  height: 360px;
+  cursor: pointer;
+}
+.card:hover{
+  background-color: rgba(244, 244, 244, 0.444);
+}
