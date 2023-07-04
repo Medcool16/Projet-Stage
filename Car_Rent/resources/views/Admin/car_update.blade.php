@@ -82,6 +82,32 @@
             </div>
 
             <div class="mb-3 c1">
+              <label  class="form-label">Kilometrage</label>
+              <select class="form-select" name="kilometrage">
+                    <option value="limited">Limited</option>
+                    <option value="unlimited">Unlimited</option>
+              </select>
+          </div>
+
+          <div class="mb-3 c1">
+            <label  class="form-label">Type</label>
+            <select class="form-select" name="type">
+                  <option value="Economy">Economy Car</option>
+                  <option value="Compact">Compact Car</option>
+                  <option value="SUVs">SUVs Car</option>
+                  <option value="Minivan">Minivans Car</option>
+                  <option value="Sport">Sport Car</option>
+                  <option value="Van">Van Car</option>
+                  <option value="Covertible">Covertible Car</option>
+            </select>
+        </div>
+
+          <div class="mb-3 c1">
+              <label  class="form-label">Number of persons</label>
+              <input type="number" class="form-control" placeholder="Number of persons" min="0" name="nbr_person">
+          </div>
+
+            <div class="mb-3 c1">
                 <label  class="form-label">Price per day</label>
                 <input type="text" class="form-control" placeholder="price" value="{{ $up->price }}" name="price">
             </div>
@@ -95,14 +121,14 @@
                     <option value="reserved">Reserved</option>
     
                   </select>
-                </div>
+              </div>
 
             <div class="mb-3 c1">
                 <label  class="form-label">Image/Logo</label>
                 <input type="file" class="form-control" placeholder="image" name="image">
             </div>
             
-            <button type="submit" class="btn btn-warning">Modify</button>
+            <button type="submit" class="btn btn-warning" style="display: block">Modify</button>
             </form>
                 </div>
             </div>

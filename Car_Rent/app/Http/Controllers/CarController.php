@@ -43,6 +43,9 @@ class CarController extends Controller
             'fuel' => 'required',
             'color' => 'required',
             'speed' => 'required',
+            'kilometrage'=>'required',
+            'type'=>'required',
+            'nbr_person'=>'required',
         ]);
 
         $new_car = new car();
@@ -55,6 +58,9 @@ class CarController extends Controller
         $new_car->status = $req->status;
         $new_car->color = $req->color;
         $new_car->puissance = $req->speed;
+        $new_car->kilometrage = $req->kilometrage;
+        $new_car->type = $req->type;
+        $new_car->nbr_person = $req->nbr_person;
         $new_car->price = $req->price;
         $new_car->image = $image_name;
 
@@ -92,6 +98,9 @@ class CarController extends Controller
         $up->id_carburant = $req->fuel;
         $up->color = $req->color;
         $up->status = $req->status;
+        $up->kilometrage = $req->kilometrage;
+        $up->type = $req->type;
+        $up->nbr_person = $req->nbr_person;
         $up->price = $req->price;
         $up->puissance = $req->speed;
 

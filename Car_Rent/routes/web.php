@@ -18,7 +18,7 @@ Route::post('/admin','AdminController@login')->name('login');
 
 
 // ------------------Destroy session------------------
-Route::get('/','AdminController@destroy')->name('des');
+Route::get('/destroy','AdminController@destroy')->name('destroy');
 
 // ------------------------------------------------
 
@@ -144,5 +144,13 @@ Route::get('/admin/tables','CarController@car_table');
 
 //[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[---- CLIENT SIDE ----]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
 
-Route::get('/home','home@test');
-Route::get('/specials','home@test2');
+
+Route::get('/','homeController@show_top_cars')->name('homie');
+
+Route::get('/specials',function(){
+    return view('Client.specials');
+});
+
+Route::get('/park',function(){
+    return view('Client.park');
+});

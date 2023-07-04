@@ -83,8 +83,34 @@
                 </div>
 
                 <div class="mb-3 c1">
+                    <label  class="form-label">Kilometrage</label>
+                    <select class="form-select" name="kilometrage">
+                          <option value="limited">Limited</option>
+                          <option value="unlimited">Unlimited</option>
+                    </select>
+                </div>
+
+                <div class="mb-3 c1">
+                  <label  class="form-label">Type</label>
+                  <select class="form-select" name="type">
+                        <option value="Economy">Economy Car</option>
+                        <option value="Compact">Compact Car</option>
+                        <option value="SUVs">SUVs Car</option>
+                        <option value="Minivan">Minivans Car</option>
+                        <option value="Sport">Sport Car</option>
+                        <option value="Van">Van Car</option>
+                        <option value="Covertible">Covertible Car</option>
+                  </select>
+              </div>
+
+                <div class="mb-3 c1">
+                    <label  class="form-label">Number of persons</label>
+                    <input type="number" class="form-control" placeholder="Number of persons" min="0" name="nbr_person">
+                </div>
+
+                <div class="mb-3 c1">
                     <label  class="form-label">Price per day</label>
-                    <input type="number" class="form-control" placeholder="price per day" name="price">
+                    <input type="number" class="form-control" placeholder="price per day" min="0" name="price">
                 </div>
     
                 <div class="mb-3 c1">
@@ -100,7 +126,7 @@
                     </ul>
                 </div>
                 @endif
-                <button type="submit" class="btn btn-primary text-center" style="display: block;">Submit</button>
+                <button type="submit" class="btn btn-primary text-center" style="display: block">Submit</button>
             </form>
                 </div>
             </div>

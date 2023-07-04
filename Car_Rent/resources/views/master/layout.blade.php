@@ -45,7 +45,7 @@
                     @endif
                     {{-- --------------------------------------------------------------- --}}
 
-                    <a href="{{ route('des') }}" class="btn btn-danger  btedit" role="button"><img src="{{asset('assets/box-arrow-right.svg')}}"></a>
+                    <a href="{{ route('destroy') }}" class="btn btn-danger  btedit" role="button"><img src="{{asset('assets/box-arrow-right.svg')}}"></a>
                 </div>
             </div>
         </div>

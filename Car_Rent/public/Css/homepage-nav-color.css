@@ -121,12 +121,28 @@
 
 
 .sec2{
-  height: 100vh;
+  height: 60vh;
+}
+.sec3{
+  height: 60vh;
 }
 .card{
-  height: 360px;
+  height: 40vh;
   cursor: pointer;
+  background-color: #89a6f326;
 }
 .card:hover{
-  background-color: rgba(244, 244, 244, 0.444);
+  background-color: #c1d1ff26;
+}
+
+.service-logo img{
+  width: 100px;
+  height: 100px;
+}
+
+.footer{
+  height: 400px;
+  width: 100%;
+  background-color: #25252d;
+
 }

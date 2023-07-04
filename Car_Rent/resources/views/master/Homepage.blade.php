@@ -33,10 +33,10 @@
       <div class="collapse navbar-collapse justify-content-center" id="navbarTogglerDemo03">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active text-light" aria-current="page" href="{{ url('/home') }}">Home</a>
+            <a class="nav-link active text-light" aria-current="page" href="{{ route('homie') }}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" href="#">Park</a>
+            <a class="nav-link text-light" href="{{ url('/park') }}">Park</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-light" href="{{ url('/specials') }}" >Specials</a>
