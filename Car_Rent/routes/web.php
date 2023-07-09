@@ -154,3 +154,24 @@ Route::get('/specials',function(){
 Route::get('/park',function(){
     return view('Client.park');
 });
+
+
+//--------------------Park-------------------
+Route::get('/park','parkController@park_show');
+
+
+
+//----------------------Register && Login---------------
+Route::get('/register',function(){
+    return view('Client.register');
+})->name('registerClient');
+
+
+Route::post('/register','ClientController@register')->name('new_client');
+
+Route::get('/login','ClientController@LogClient')->name('loginClient');
+
+// ------------------Destroy session of client------------------
+Route::get('/destroyClient','ClientController@destroyClient')->name('desClient');
+
+// ------------------------------------------------

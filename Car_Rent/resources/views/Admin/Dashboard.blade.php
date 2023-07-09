@@ -5,97 +5,77 @@
 @endsection
 
 @section('content')
-    <div class="row">
-    <div class="col-md-4" style="margin: 0px 100px">
-        <div class="card mb-3 mx-4 w-10">
-            <div class="row">
-              <div class="col-md-6">
-                <img src="images/car.png" class="img-fluid" width="180px" height="180px">
-              </div>
-              <div class="col-md-6">
-                <div class="card-body text-center">
-                  <h1 class="card-title text-center">CARS</h1>
-                  <span class="num">{{ $cars }}</span>
-                  <p class="card-text"></p>
-                </div>
-              </div>
-            </div>
-          </div>
+<div class="grid grid-cols-2 gap-4 mb-4">
+    <div class="flex items-center justify-center h-50 rounded bg-gray-50 dark:bg-gray-800 position-relative">
+        <img src="images/car.png" class="img-fluid" width="180px" height="180px">
+        <div>
+            <div class="text-center mb-4 text-6xl text-gray-900 dark:text-white"><h1>CARS</h1></div>
+            <div class="flex justify-center"><span class="num">{{ $cars }}</span></div>
+        </div>
     </div>
 
-
-    <div class="col-md-4">
-        <div class="card mb-3 mx-4">
-            <div class="row">
-              <div class="col-md-6">
-                <img src="images/clients.png" class="img-fluid my-4 mx-2" width="190px" height="190px">
-              </div>
-              <div class="col-md-6">
-                <div class="card-body text-center">
-                  <h2 class="card-title">CLIENTS</h2>
-                  <span class="num">{{ $clients }}</span>
-                  <p class="card-text"></p>
-                </div>
-              </div>
-            </div>
-          </div>
+    <div class="flex items-center justify-center h-50 rounded bg-gray-50 dark:bg-gray-800 position-relative">
+        <img src="images/clients.png" class="img-fluid my-4 mx-2" width="190px" height="190px">
+        <div>
+            <div class="text-center mb-4 text-6xl text-gray-900 dark:text-white"><h1>CLIENTS</h1></div>
+            <div class="flex justify-center"><span class="num">{{ $clients }}</span></div>
+        </div>
     </div>
-</div>
+  
+ </div>
 
-<div class="line"></div>
+ <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
 
-
-<h2 class="text-center">Available cars</h2>
-<div class="row">
-<table class="table table-bordered table-hover">
-        <thead>
+ <div class="grid grid-cols-1 gap-4 mb-4">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
-                <th scope="col">Matricule</th>
-                <th scope="col">Mark</th>
-                <th scope="col">Model</th>
-                <th scope="col">Color</th>
-                <th scope="col">Gear-box</th>
-                <th scope="col">Fuel</th>
-                <th scope="col">Speed</th>
-                <th scope="col">Price/day</th>
+                <th scope="col" class="px-6 py-3">Matricule</th>
+                <th scope="col" class="px-6 py-3">Mark</th>
+                <th scope="col" class="px-6 py-3">Model</th>
+                <th scope="col" class="px-6 py-3">Color</th>
+                <th scope="col" class="px-6 py-3">Gear-box</th>
+                <th scope="col" class="px-6 py-3">Fuel</th>
+                <th scope="col" class="px-6 py-3">Speed</th>
+                <th scope="col" class="px-6 py-3">Price/day</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($available_cars as $i)
-            <tr class="">
-                <td>{{ $i->matricule }}</td>
-                <td>
+            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                <td class="px-2 py-0 " >{{ $i->matricule }}</td>
+                <td class="px-2 py-0 " >
                     @foreach ($mark as $t)
                         @if ($i->id_marque == $t->id)
                             {{ $t->mark_name }}
                         @endif
                     @endforeach
                 </td>
-                <td>
+                <td class="px-2 py-0 " >
                     @foreach ($model as $k)
                         @if ($i->id_model == $k->id)
                             {{ $k->model_name }}
                         @endif
                     @endforeach
                 </td>
-                <td>{{ $i->color }}</td>
-                <td>{{ $i->gear_box }}</td>
-                <td>
+                <td class="px-2 py-0 " >{{ $i->color }}</td>
+                <td class="px-2 py-0 " >{{ $i->gear_box }}</td>
+                <td class="px-2 py-0 " >
                     @foreach ($fuel as $f)
                         @if ($i->id_carburant == $f->id)
                             {{ $f->fuel_type }}
                         @endif
                     @endforeach
                 </td>
-                <td>{{ $i->puissance }} km/h</td>
-                <td>{{ $i->price }} Dhs</td>
+                <td class="px-2 py-0 " >{{ $i->puissance }} km/h</td>
+                <td class="px-2 py-0 " >{{ $i->price }} Dhs</td>
             </tr>   
             @endforeach
         </tbody>
     </table>
-    
-</div>
+ </div>
 @endsection
+
 
 
 @section('style')

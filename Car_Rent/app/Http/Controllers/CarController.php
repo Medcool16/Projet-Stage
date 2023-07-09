@@ -29,9 +29,9 @@ class CarController extends Controller
         // ------image-------
         $image_name = '';
         if ($req->has('image')) {
-            $file = $req->image;
-            $image_name = time() .'_'. $file->getClientOriginalName();
-            $file->move(public_path('uploads', $image_name));
+
+            $image_name = time().'.'.$req->image->extension();  
+            $req->image->move(public_path('uploads'), $image_name);
         }
 
         // -----Validation----
@@ -46,6 +46,7 @@ class CarController extends Controller
             'kilometrage'=>'required',
             'type'=>'required',
             'nbr_person'=>'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
         $new_car = new car();
@@ -90,6 +91,13 @@ class CarController extends Controller
 //===============================================
     public function update_car(Request $req, $id){
         $up = car::find($id);
+        
+        if ($req->has('image')) {
+            $image_name = time().'.'.$req->image->extension();  
+            $req->image->move(public_path('uploads'), $image_name);
+            $up->image = $image_name;
+        }
+
 
         $up->matricule = $req->matricule;
         $up->gear_box = $req->gear;
@@ -103,6 +111,7 @@ class CarController extends Controller
         $up->nbr_person = $req->nbr_person;
         $up->price = $req->price;
         $up->puissance = $req->speed;
+        $up->image = $up->image;
 
         $up->update();
         return redirect()->route('back_car')->with([

@@ -6,27 +6,22 @@
 
 
 @section('content')
-<div class="row">
-        <div class="col-md-12">
-            <div class="">
-                <h1 class="text-center text-primary">ADD CAR</h1>
+            <div>
+                <h1 class="text-center text-blue-600 text-4xl my-3">ADD CAR</h1>
             </div>
-            <div class="card w-75" style="margin:0px auto ;">
-                <div class="card-header bg-primary">
-                    <h3 class="text-center text-light">Car</h3>
-                </div>
+            <div class="block max-w-4xl p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700" style="margin:0px auto ;">
                 <div class="card-body">
                     <form method="POST" action="{{ route('store_car') }}" enctype="multipart/form-data">
                     @csrf
                 <div class="mb-3 c1">
-                  <label  class="form-label" >Matricule</label>
-                  <input type="text" class="form-control" placeholder="Matricule" name="matricule">
+                  <label  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" >Matricule</label>
+                  <input type="text" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Matricule" name="matricule">
                 </div>
             
                 <div class="mb-3 c1 c1">
-                  <label  class="form-label">Gear-box</label>
+                  <label  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Gear-box</label>
     
-                  <select class="form-select" name="gear">
+                  <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="gear">
     
                     <option value="manual">Manual</option>
                     <option value="automatic">Automatic</option>
@@ -35,9 +30,9 @@
                 </div>
     
                 <div class="mb-3 c1">
-                  <label  class="form-label">Status</label>
+                  <label  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status</label>
     
-                  <select class="form-select" name="status">
+                  <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="status">
     
                     <option value="available">Available</option>
                     <option value="reserved">Reserved</option>
@@ -46,8 +41,8 @@
                 </div>
             
                 <div class="mb-3 c1">
-                  <label  class="form-label">Mark</label>
-                  <select class="form-select" name="mark">
+                  <label  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Mark</label>
+                  <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="mark">
                     @foreach ($mark as $i)
                         <option value="{{ $i->id }}">{{ $i->mark_name }}</option>
                     @endforeach
@@ -55,8 +50,8 @@
                 </div>
             
                 <div class="mb-3 c1">
-                  <label  class="form-label">Model</label>
-                  <select class="form-select" name="model">
+                  <label  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Model</label>
+                  <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="model">
                     @foreach ($model as $j)
                         <option value="{{ $j->id }}">{{ $j->model_name }}</option>
                     @endforeach
@@ -64,8 +59,8 @@
                 </div>
                 
                 <div class="mb-3 c1">
-                  <label  class="form-label">Fuel</label>
-                  <select class="form-select" name="fuel">
+                  <label  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fuel</label>
+                  <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="fuel">
                     @foreach ($fuel as $k)
                         <option value="{{ $k->id }}">{{ $k->fuel_type }}</option>
                     @endforeach
@@ -73,26 +68,26 @@
                 </div>
     
                 <div class="mb-3 c1">
-                    <label  class="form-label">Color</label>
-                    <input type="text" class="form-control" placeholder="color" name="color">
+                    <label  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Color</label>
+                    <input type="text" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="color" name="color">
                 </div>
     
                 <div class="mb-3 c1">
-                    <label  class="form-label">Speed</label>
-                    <input type="text" class="form-control" placeholder="speed" name="speed">
+                    <label  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Speed</label>
+                    <input type="text" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="speed" name="speed">
                 </div>
 
                 <div class="mb-3 c1">
-                    <label  class="form-label">Kilometrage</label>
-                    <select class="form-select" name="kilometrage">
-                          <option value="limited">Limited</option>
-                          <option value="unlimited">Unlimited</option>
+                    <label  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kilometrage</label>
+                    <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="kilometrage">
+                      <option value="unlimited">Unlimited</option>
+                      <option value="limited">Limited</option>
                     </select>
                 </div>
 
                 <div class="mb-3 c1">
-                  <label  class="form-label">Type</label>
-                  <select class="form-select" name="type">
+                  <label  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Type</label>
+                  <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="type">
                         <option value="Economy">Economy Car</option>
                         <option value="Compact">Compact Car</option>
                         <option value="SUVs">SUVs Car</option>
@@ -101,24 +96,24 @@
                         <option value="Van">Van Car</option>
                         <option value="Covertible">Covertible Car</option>
                   </select>
-              </div>
-
-                <div class="mb-3 c1">
-                    <label  class="form-label">Number of persons</label>
-                    <input type="number" class="form-control" placeholder="Number of persons" min="0" name="nbr_person">
                 </div>
 
                 <div class="mb-3 c1">
-                    <label  class="form-label">Price per day</label>
-                    <input type="number" class="form-control" placeholder="price per day" min="0" name="price">
+                    <label  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Number of persons</label>
+                    <input type="number" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Number of persons" min="0" name="nbr_person">
+                </div>
+
+                <div class="mb-3 c1">
+                    <label  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price per day</label>
+                    <input type="number" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="price per day" min="0" name="price">
                 </div>
     
                 <div class="mb-3 c1">
-                    <label  class="form-label">Image/Logo</label>
-                    <input type="file" class="form-control" placeholder="image" name="image">
+                    <label  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Image/Logo</label>
+                    <input type="file" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" placeholder="image" name="image">
                 </div>
                 @if ($errors->any())
-                    <div class="alert alert-danger">
+                    <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400">
                     <ul>
                         @foreach ($errors->all() as $error)
                             <li>{{ $error }}</li>
@@ -126,12 +121,12 @@
                     </ul>
                 </div>
                 @endif
-                <button type="submit" class="btn btn-primary text-center" style="display: block">Submit</button>
+                <br>
+                <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" style="display: inline-block">Submit</button>
+                <a href="{{ url('/cars') }}" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" style="display: inline-block">Return</a>
             </form>
-                </div>
             </div>
-        </div>
-</div>
+            </div>
 @endsection
 
 

@@ -5,136 +5,88 @@
 @endsection
 
 @section('content')
-    <section>
-        <div class="container">
-           {{-- <div class="blockquote-wrapper position-absolute">
-        <div class="blockquote">
-          <h1 class="text-light">
-            Experience the Thrill of the Road with Our Rentals
-           </h1>
-           <a href="#" class="btn btn-warning book position-absolute">Book Now</a>
+  <section style="margin-top: 90px">
+      
+    <div id="default-carousel" class="relative w-full z-0" data-carousel="slide">
+      <!-- Carousel wrapper -->
+      <div class="relative h-56 overflow-hidden  md:h-96">
+
+          <!-- Item 1 -->
+          <div class="hidden duration-700 ease-in-out" data-carousel-item>
+              <img src="images/1.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
           </div>
-      </div>  --}}
-      <div class="slide mt-4">
-        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active" data-bs-interval="1800">
-              <img src="images/1.jpg" class="d-block w-100 h-50">
-            </div>
-            <div class="carousel-item" data-bs-interval="1800">
-              <img src="images/3.jpg" class="d-block w-100 h-50">
-            </div>
-            <div class="carousel-item" data-bs-interval="">
-              <img src="images/bg.jpg" class="d-block w-100 h-50">
-            </div>
+          <!-- Item 2 -->
+          <div class="hidden duration-700 ease-in-out" data-carousel-item>
+              <img src="images/3.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
           </div>
-        </div>
+          <!-- Item 3 -->
+          <div class="hidden duration-700 ease-in-out" data-carousel-item>
+              <img src="images/bg.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+          </div>
+          <!-- Item 4 -->
+          <div class="hidden duration-700 ease-in-out" data-carousel-item>
+              <img src="images/1.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+          </div>
+          <!-- Item 5 -->
+          <div class="hidden duration-700 ease-in-out" data-carousel-item>
+              <img src="images/3.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+          </div>
       </div>
     </div>
-        </div>
-    </section>
 
-    <section>
-      <div class="container sec2">
-        <hr>
-        <div class="title my-4 mb-5">
-          <h3 class="text-center text-secondary text-uppercase">--------- &nbsp; OUR CAR RENTAL SERVICES &nbsp; ---------</h3>
-        </div>
-        <div class="row">
+  </section>
 
-          <div class="col-md-3">
-            <div class="card" style="width: 18rem;">
-              <div class="card-body">
-                <div class="card-title">
-                  <h5 class="text-center">Customer Support</h5>
-                </div>
-                <div class="service-logo d-flex justify-content-center d-flex justify-content-center">
-                    <img src="/images/services/customer.png" class="img-fluid">
-                </div>
-                <p class="card-text text-center">We provide reliable customer support via phone, email, or live chat to assist with inquiries, modifications, or cancellations.</p>
-              </div>
-            </div>
-            </div>
+  <hr class="h-px my-3 bg-gray-200 border-0 dark:bg-gray-700">
 
-          <div class="col-md-3">
-            <div class="card" style="width: 18rem;">
-              <div class="card-body">
-                <div class="card-title">
-                  <h5 class="text-center">Roadside insurance</h5>
-                </div>
-                <div class="service-logo d-flex justify-content-center">
-                    <img src="/images/services/roadside.png" class="img-fluid">
-                </div>
-                <p class="card-text text-center">we provide 24/7 roadside assistance services, including vehicle breakdown support, tire change, fuel delivery, and lockout assistance.</p>
-              </div>
-            </div>
-            </div>
+  <div class="">
+    <h3 class="text-center text-3xl dark:text-white">--------- &nbsp; OUR CAR RENTAL SERVICES &nbsp; ---------</h3>
+  </div>
 
-          <div class="col-md-3">
-            <div class="card" style="width: 18rem;">
-              <div class="card-body">
-                <div class="card-title">
-                  <h5 class="text-center">Online Booking</h5>
-                </div>
-                <div class="service-logo d-flex justify-content-center">
-                    <img src="/images/services/booking.png" class="img-fluid">
-                </div>
-                <p class="card-text text-center">We allow customers to browse available vehicles, compare prices, and make reservations conveniently through the website</p>
-              </div>
-            </div>
-            </div>
+  <section style="margin-top: 100px">
 
-          <div class="col-md-3">
-            <div class="card" style="width: 18rem;">
-              <div class="card-body">
-                <div class="card-title">
-                  <h5 class="text-center">Insurance Coverage</h5>
-                </div>
-                <div class="service-logo d-flex justify-content-center">
-                    <img src="/images/services/insurance.png" class="img-fluid">
-                </div>
-                <p class="card-text text-center">We offer various insurance options to protect customers against accidents, damage, theft, or other unforeseen events.</p>
-              </div>
+    <div class="grid grid-cols-4 gap-4 mb-4">
+
+      <div class="flex items-center justify-center h-24 rounded px-2">
+        <a href="#" class="block max-w-sm p-8 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+            <h3 class="text-center text-3xl my-3 dark:text-white">Customer Support</h5>
+            <div class="flex justify-center dark:invert ">
+              <img src="/images/services/customer.png" class="h-14">
             </div>
-            </div>
-        </div>
+            <p class="font-normal text-gray-700 dark:text-gray-400 dark:text-white">We provide reliable customer support via phone, email, or live chat to assist with inquiries, modifications, or cancellations.</p>
+          </a>
       </div>
-    </section>
 
-    <section>
-      <div class="container sec3">
-        <hr>
-        <div class="title my-4 mb-5">
-          <h3 class="text-center text-secondary text-uppercase">--------- &nbsp; Special Offers and Discounts &nbsp; ---------</h3>
-        </div>
-
-        @foreach ($data as $i)
-        <div class="row d-flex justify-content-center">
-          <div class="col-md-6">
-            <img src="{{ $i->image }}" class="rounded float-start">
-          </div>
-          <div class="col-md-6">
-            @foreach ($mark as $k)
-              @if ($i->id_marque === $k->id)
-                  <h4>{{ $k->mark_name }}</h4>
-              @endif
-            @endforeach
-          </div>
-        </div>
-        @endforeach
-
-
+      <div class="flex items-center justify-center h-24 rounded px-2">
+        <a href="#" class="block max-w-sm p-8 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+            <h3 class="text-center text-3xl my-3 dark:text-white">Roadside insurance</h5>
+            <div class="flex justify-center">
+              <img src="/images/services/roadside.png" class="h-14">
+            </div>
+            <p class="font-normal text-gray-700 dark:text-gray-400 dark:text-white">We provide reliable customer support via phone, email, or live chat to assist with inquiries, modifications, or cancellations.</p>
+          </a>
       </div>
-    </section>
 
-    <section class="sec4">
-
-    </section>
-
-    <footer class="sec5">
-      <div class="footer">
-        <h2 class="text-light text-center">Footer</h2>
+      <div class="flex items-center justify-center h-24 rounded px-2">
+        <a href="#" class="block max-w-sm p-8 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+            <h3 class="text-center text-3xl my-3 dark:text-white">Online booking</h5>
+            <div class="flex justify-center">
+              <img src="/images/services/booking.png" class="h-14">
+            </div>
+            <p class="font-normal text-gray-700 dark:text-gray-400 dark:text-white">We allow customers to browse available vehicles, compare prices, and make reservations conveniently through the website</p>
+          </a>
       </div>
-    </footer>
+
+      <div class="flex items-center justify-center h-24 rounded px-2">
+        <a href="#" class="block max-w-sm p-8 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+            <h3 class="text-center text-3xl my-3 dark:text-white">Insurance Coverage</h5>
+            <div class="flex justify-center">
+              <img src="/images/services/insurance.png" class="h-14">
+            </div>
+            <p class="font-normal text-gray-700 dark:text-gray-400 dark:text-white">We offer various insurance options to protect customers against accidents, damage, theft, or other unforeseen events.</p>
+          </a>
+      </div>
+
+
+    </div>
+  </section>
 @endsection
-

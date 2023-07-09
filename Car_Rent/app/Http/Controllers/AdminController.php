@@ -19,8 +19,6 @@ class AdminController extends Controller
         if ($data) {
             session(['name' => $username]);
             return redirect('/dashboard');
-            //header('Location: /dashboard');
-            // exit;
         }
         else{
             return redirect()->route('error_show')->withErrors([
