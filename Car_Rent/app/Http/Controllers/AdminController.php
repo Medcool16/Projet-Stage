@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Session;
 
 class AdminController extends Controller
 {
-    public function login(Request $req){
+    public function loginAdmin(Request $req){
         $username = $req->username;
         $password = $req->password;
 

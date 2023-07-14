@@ -12,7 +12,7 @@ class homeController extends Controller
     public function show_top_cars(){
         $min = 280;
         $max = 300;
-        $data = car::whereBetween('puissance',[$min,$max])->get();
+        $data = car::all();
         $mark = mark::all();
 
         return view('Client.home',compact('data','mark'));

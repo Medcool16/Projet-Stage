@@ -1,27 +1,47 @@
+function countUp(targetElementId, startValue, endValue, duration) {
+  let startTime = null;
+  let isAnimating = false;
+  const targetElement = document.getElementById(targetElementId);
 
-btn1 = document.getElementById('btn1');
-btn2 = document.getElementById('btn2');
-body = document.body;
+  function animateCount(timestamp) {
+    if (!startTime) startTime = timestamp;
+    const progress = timestamp - startTime;
+    const increment = (endValue - startValue) * (progress / (duration * 1000));
+    const currentCount = Math.round(startValue + increment);
 
-let moon = document.querySelector('#img1');
-let sun = document.querySelector('#img2');
+    targetElement.textContent = currentCount;
 
-btn1.addEventListener("click", e=>{
-    body.classList.toggle('dark')
-    body.classList.toggle('light')
-    
+    if (progress < duration * 1000) {
+      requestAnimationFrame(animateCount);
+    } else {
+      targetElement.textContent = endValue;
+      isAnimating = false;
+    }
+  }
 
+  function handleScroll() {
+    if (isElementInViewport(targetElement) && !isAnimating) {
+      isAnimating = true;
+      startTime = null;
+      animateCount(null);
+      window.removeEventListener('scroll', handleScroll); // Remove the event listener after triggering the animation
+    }
+  }
 
-    moon.classList.toggle('show')
-    sun.classList.toggle('show')
-});
+  function isElementInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+  }
 
-btn2.addEventListener("click", e=>{
-    body.classList.toggle('dark')
-    body.classList.toggle('light')
-    
+  window.addEventListener('scroll', handleScroll);
+}
 
+countUp('clientsCount', 0, 1000, 3); 
+countUp('carStockCount', 0, 500, 5);
+countUp('reservationCount', 0, 200, 5);
 
-    moon.classList.toggle('show')
-    sun.classList.toggle('show')
-});

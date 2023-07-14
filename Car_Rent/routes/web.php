@@ -12,7 +12,7 @@ Route::get('/admin', function () {
     return view('Admin.admin_login');
 })->name('error_show');
 
-Route::post('/admin','AdminController@login')->name('login');
+Route::post('/admin','AdminController@loginAdmin')->name('login');
 
 // -----------------------------------------------------------
 
@@ -141,15 +141,24 @@ Route::get('/admin/tables','CarController@car_table');
 
 // --------------------------------------------------------------
 
+//-----------------------------------Agency----------------------------
+Route::get('/agencies',function(){
+    return view('Admin.Agencie');
+});
+
+Route::get('/agencies','AgencyController@show_agencies')->name('back_agency');
+
+Route::post('/agencies','AgencyController@store_agency')->name('store_agency');
+
+Route::delete('/agencies','AgencyController@remove_fuel')->name('remove_agency');
+
 
 //[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[---- CLIENT SIDE ----]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
 
 
 Route::get('/','homeController@show_top_cars')->name('homie');
 
-Route::get('/specials',function(){
-    return view('Client.specials');
-});
+
 
 Route::get('/park',function(){
     return view('Client.park');
@@ -167,11 +176,40 @@ Route::get('/register',function(){
 })->name('registerClient');
 
 
+Route::get('/login',function(){
+    return view('Client.login');
+})->name('logClient');
+
+
 Route::post('/register','ClientController@register')->name('new_client');
 
-Route::get('/login','ClientController@LogClient')->name('loginClient');
+ Route::get('/connect','ClientController@LogClient')->name('Connect_client');
+
+
 
 // ------------------Destroy session of client------------------
 Route::get('/destroyClient','ClientController@destroyClient')->name('desClient');
 
 // ------------------------------------------------
+
+
+
+
+// --------------------Reservation------------------
+
+Route::get('/reservation',function(){
+    return view('Client.reservation');
+});
+
+Route::get('/reservation','ReservationController@car_show_reserve');
+
+Route::get('/reservation', 'ReservationController@all')->name('all');
+
+
+Route::get('/compact','ReservationController@compact')->name('compact');
+Route::get('/economy','ReservationController@economy')->name('economy');
+Route::get('/SUVs','ReservationController@SUVs')->name('SUVs');
+Route::get('/van','ReservationController@van')->name('van');
+Route::get('/minivan','ReservationController@minivan')->name('minivan');
+Route::get('/covertible','ReservationController@covertible')->name('covertible');
+Route::get('/sport','ReservationController@sport')->name('sport');

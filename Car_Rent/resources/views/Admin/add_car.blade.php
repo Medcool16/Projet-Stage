@@ -109,6 +109,11 @@
                 </div>
     
                 <div class="mb-3 c1">
+                    <label  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Agency</label>
+                    <input type="text" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" placeholder="image" name="image">
+                </div>
+    
+                <div class="mb-3 c1">
                     <label  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Image/Logo</label>
                     <input type="file" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" placeholder="image" name="image">
                 </div>

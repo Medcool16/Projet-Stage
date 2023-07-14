@@ -95,6 +95,7 @@ class CarController extends Controller
         if ($req->has('image')) {
             $image_name = time().'.'.$req->image->extension();  
             $req->image->move(public_path('uploads'), $image_name);
+            unlink(public_path('uploads') .'/'. $up->image);
             $up->image = $image_name;
         }
 
