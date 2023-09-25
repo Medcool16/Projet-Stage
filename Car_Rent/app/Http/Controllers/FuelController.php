@@ -32,8 +32,7 @@ class FuelController extends Controller
     }
 
     public function remove_fuel($id){
-        $removed = fuel::find($id);
-        $removed->delete();
+        $removed = fuel::where('id',$id)->delete();
 
         return redirect()->route('back_fuel')->with([
             'success' => 'Data deleted successfully'

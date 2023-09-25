@@ -6,11 +6,11 @@
 
 @section('content')
 <section class="">
-    
-<div id="default-carousel" class="relative w-full z-0" data-carousel="slide" style="margin-top: -88px;">
 
-  <div class="absolute z-30 mx-3 slogan">
-    <h1 class="text-6xl text-white text-center">Your Ultimate Travel Companion,<span class="text-red-600 text-4xl block">Rent Now</span></h1>
+<div id="default-carousel" class="relative z-0" data-carousel="slide" style="margin-top: -88px; width: 101%">
+
+  <div id="title" class="absolute z-30 mx-3 slogan">
+    <h1 class="text-6xl text-white text-center">Your Ultimate Travel Companion,<span class="text-red-600 text-4xl block">{{ __("message.Rent Now") }}</span></h1>
   </div>
 
   <!-- Carousel wrapper -->
@@ -21,7 +21,7 @@
       </div>
       <!-- Item 2 -->
       <div class="hidden duration-700 ease-in-out" data-carousel-item>
-          <img src="{{ asset('images/test.jpg') }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 transition-all duration-300 rounded-lg cursor-pointer filter grayscale hover:grayscale-0" alt="...">
+          <img src="{{ asset('images/tests.jpg') }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 transition-all duration-300 rounded-lg cursor-pointer filter grayscale hover:grayscale-0" alt="...">
       </div>
       <!-- Item 3 -->
       <div class="hidden duration-700 ease-in-out" data-carousel-item>
@@ -45,266 +45,202 @@
       <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
   </div>
   
-    {{-- Form --}}
-  <div class="absolute z-30 mx-3 reserve">
-      
-      <form action="" method="">
-        <div class="mb-6">
-          <div class="relative max-w-sm">
-            <div class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
-              <img class="w-4 h-4 text-gray-500 dark:text-gray-400" src="{{ asset('assets/cloud-fog.svg') }}">
-            </div>
-            <select name="car_type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
-              <option class="text-center">Select car type</option>
-              @foreach ($mark as $m)
-                  <option value="{{ $m->id }}" class="">{{ $m->mark_name }}</option>
-              @endforeach
-            </select>
-          </div>
-        </div>
-        <div class="mb-6">
-          <div class="relative max-w-sm">
-            <div class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
-              <img class="w-4 h-4 text-gray-500 dark:text-gray-400" src="{{ asset('assets/geo-alt.svg') }}">
-            </div>
-            <input datepicker type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Location">
-          </div>
-        </div>
-
-        <div class="mb-6 c1">
-            <div class="relative max-w-sm">
-              <div class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
-                <img class="w-4 h-4 text-gray-500 dark:text-gray-400" src="{{ asset('assets/calendar-date.svg') }}">
-              </div>
-              <input datepicker type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Start date">
-            </div>
-        </div>
-
-        <div class="mb-6 c1">
-            <div class="relative max-w-sm">
-              <div class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
-                <img class="w-4 h-4 text-gray-500 dark:text-gray-400" src="{{ asset('assets/calendar-date.svg') }}">
-              </div>
-              <input datepicker type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="End date">
-            </div>
-        </div>
-
-
-        <div class="mb-6 c1">
-            <div class="relative max-w-sm">
-              <div class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
-                <img class="w-4 h-4 text-gray-500 dark:text-gray-400" src="{{ asset('assets/clock.svg') }}">
-              </div>
-              <input datepicker type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Start time">
-            </div>
-        </div>
-
-        <div class="mb-6 c1">
-            <div class="relative max-w-sm">
-              <div class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
-                <img class="w-4 h-4 text-gray-500 dark:text-gray-400" src="{{ asset('assets/clock.svg') }}">
-              </div>
-              <input datepicker type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="End time">
-            </div>
-        </div>
-
-
-        <button type="submit" class="block text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800 w-full">Book now</button>
-
-      </form>
-
-  </div>
 </div>
-
 </section>
 
-<section class="items-center justify-between mx-auto p-4" >
+<section class=" items-center justify-between mx-auto p-4" >
+  <div class="items-center max-w-screen-xl px-4 py-8 mx-auto lg:grid lg:grid-cols-4 lg:gap-16 xl:gap-24 lg:py-24 lg:px-6">
+    <div class="col-span-2 mb-8">
 
-  <div class="h-24 w-full" style="padding-top: 50px">
-        <h1 class=" service-title text-5xl text-center text-white">Our service your <span class=" text-red-600">satisfaction</span></h1><br>
-        <p class="text-center text-white w-full text-sm"> We handle the details while you enjoy the festivities. Trust our expertise, top-notch service, Your satisfaction is our ultimate priority
-        </p>        
-  </div>
-  
+      <h1 class=" service-title text-5xl text-center text-white">{{ __('message.Our service your') }} <span class=" text-red-600">{{ __('message.satisfaction') }}</span></h1><br>
 
+      <p class="font-light  sm:text-xl text-gray-200 text-center"> {{ __('message.We handle the details while you enjoy the festivities. Trust our expertise, top-notch service, Your satisfaction is our ultimate priority') }}</p>
+      <div class="pt-6 mt-6 space-y-4 border-t border-gray-200 dark:border-gray-700">
 
-    <div class="grid grid-cols-4 gap-4 mb-4" style="margin-top: 100px">
-      <div class="flex flex-col items-center">
-        <img src="{{ asset('images/services/customer.png') }}" class="invert w-20">
-        <h1 class="text-3xl text-white font-semibold">Customer support</h1>
-        <hr class="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700">
-        <p class="text-center text-white w-full" style="width: 212px">We provide reliable customer support via phone, email, or live chat to assist with inquiries,modifications, or cancellations.</p>  
       </div>
-      
-      <div class="flex flex-col items-center">
-        <img src="{{ asset('images/services/booking.png') }}" class="invert w-20">
-        <h1 class="text-3xl text-white font-semibold">Online booking</h1>
-        <hr class="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700">
-        <p class="text-center text-white w-full" style="width: 212px">We allow customers to browse available vehicles, compare prices, and make reservations conveniently through the website</p>  
-      </div>
-      
-      <div class="flex flex-col items-center">
-        <img src="{{ asset('images/services/insurance.png') }}" class="invert w-20">
-        <h1 class="text-3xl text-white font-semibold">Customer support</h1>
-        <hr class="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700">
-        <p class="text-center text-white w-full" style="width: 212px">We provide reliable customer support via phone, email, or live chat to assist with inquiries,modifications, or cancellations.</p>  
-      </div>
-      
-      <div class="flex flex-col items-center">
-        <img src="{{ asset('images/services/crane-truck.png') }}" class="invert w-20">
-        <h1 class="text-3xl text-white font-semibold">Roadside insurance</h1>
-        <hr class="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700">
-        <p class="text-center text-white w-full" style="width: 212px">We provide reliable customer support via phone, email, or live chat to assist with inquiries, modifications, or cancellations.</p>  
-      </div>
-
-    
     </div>
+    <div class="col-span-2 space-y-8 md:grid md:grid-cols-2 md:gap-12 md:space-y-0">
+      <div class="">
+        <img src="{{ asset('images/services/customer.png') }}" class=" w-20">
+        <h3 class="mb-2 text-2xl font-bold text-white">{{ __('message.Customer support') }}</h3>
+        <p class="font-light text-gray-400">We provide reliable customer support via phone, email, or live chat to assist with inquiries,modifications, or cancellations.</p>
+      </div>
+
+      
+      <div>
+        <img src="{{ asset('images/services/booking.png') }}" class=" w-20">
+        <h3 class="mb-2 text-2xl font-bold text-white">{{ __('message.Online booking') }}</h3>
+        <p class="font-light text-gray-400">We allow customers to browse available vehicles, compare prices, and make reservations conveniently through the website</p>
+      </div>
+
+      <div>
+        <img src="{{ asset('images/services/insurance.png') }}" class=" w-20">
+        <h3 class="mb-2 text-2xl font-bold text-white">{{ __('message.Insurance coverage') }}</h3>
+        <p class="font-light text-gray-400">Benefit from our "Insurance Coverage" and travel without worries. We've got you protected from accidents to theft.</p>
+      </div>
+
+      <div>
+        <img src="{{ asset('images/services/crane-truck.png') }}" class=" w-20">
+        <h3 class="mb-2 text-2xl font-bold text-white">{{ __('message.Roadside insurance') }}</h3>
+        <p class="font-light text-gray-400">We provide "Roadside Insurance" to guarantee seamless journeys. From flat tires to battery glitches, we're here for you. </p>
+      </div>
+
+
+    </div>
+
+      
 
     
 </section>
 
-<section class="banner">
-  <h1 class="font-bold text-4xl text-white underline">Why choosing us ?</h1>
-  <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem consequuntur dolorum placeat quisquam animi rem iste minus! Doloremque, facilis reiciendis?</p>
+<div class="pt-6 mt-6 space-y-4 border-t border-gray-900"></div>
 
-  <div class="why-holder flex" style="justify-content: space-evenly;margin-top: 50px;">
+<section style="margin-bottom: 100px">
 
-    <div class=" flex-col justify-center h-96">
-      
-        <a href="#" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">No hidden fees</h5>
-          <p class="font-normal text-gray-700 dark:text-gray-400" style="width: 300px">Know exactly what you’re paying</p>
-        </a> 
+  <p class="text-center text-gray-300 font-medium text-2xl">Come with</p>
+  <h1 class=" mt-4 mb-4 text-3xl font-extrabold leading-none tracking-tight text-center md:text-5xl lg:text-6xl text-red-500">HOT OFFERS</h1>
 
-    </div>
-
-      <div class="h-48 bg-white" style="width: 0.5px"></div>
-
-    <div class=" flex-col justify-center h-96">
-      
-        <a href="#" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Price Match Guarantee</h5>
-          <p class="font-normal text-gray-700 dark:text-gray-400" style="width: 300px">Found the same deal for less? We’ll match the price</p>
-        </a>
-
-    </div>
-
-      <div class="h-48 bg-white" style="width: 0.5px"></div>
-
-    <div class=" flex-col justify-center h-96">
-
-      <a href="#" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Flexible rentals</h5>
-        <p class="font-normal text-gray-700 dark:text-gray-400" style="width: 300px">Cancel or change most bookings for free up to 48 hours before pick-up</p>
+  <div id="specials" class="flex flex-wrap mx-2 space-x-4 justify-center">
+    @foreach($data as $i)
+    <div  class="w-full my-2 max-w-sm bg-transparent border relative border-red-100 shadow hover:text-gray-900 hover:bg-gray-800 transition duration-500 ease-in-out ">
+      <a href="#" class="">
+          <div class="p-8 rounded-t-lg" style="margin-bottom: -30px">
+              <img class="w-full h-48 object-contain rounded-t-lg" src="{{ asset('uploads/'.$i->image) }}" alt="product image" />
+          </div>
       </a>
-    </div>
-  </div>
-{{-- ----------------------------------------------- --}}
-
-    <div class=" grid grid-cols-3 gap-4 mb-4 countup">
-        <div class="flex flex-col items-center">
-          <h1 class="text-3xl text-white font-semibold">Clients</h1>
-            <img src="{{ asset('images/why/clients.png') }}" class="invert w-20">
-            <p id="clientsCount" class="text-3xl font-bold text-center text-white w-full">0</p>
-        </div>
+      <div class="px-5 pb-5">
+          <a href="#">
+              @foreach ($mark as $j)
+                  @if ($i->id_marque == $j->id)
+                  <h5 class="text-3xl text-white font-semibold tracking-tight text-center"> {{ $j->mark_name }}</h5>
+                  @endif
+              @endforeach
+          </a>
     
-        <div class="flex flex-col items-center">
-          <h1 class="text-3xl text-white font-semibold">Cars</h1>
-          <img src="{{ asset('images/why/cars.png') }}" class="invert w-20">
-          <p id="carStockCount" class="text-3xl font-bold text-center text-white w-full">0</p>
+          <div class="flex justify-center space-x-5">
+              <span class="text-center font-thin text-white"><span class="text-2xl line-through text-white">{{ $i->price+100 }}</span> Dhs/<span class="text-red-500">Day</span></span>
+              <span class="text-center font-thin text-white py-2">{{ $i->price }} Dhs/<span class="text-red-500">Day</span></span>
+          </div>
+              {{-- -----------------------------------------------------boook------------------------------------------------------------ --}}
+          <div class="flex justify-center" style="margin-bottom:10px ">
+            <a href="{{ route('book',$i->id) }}" class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Book now</a>
         </div>
+            {{-- -----------------------------------------------------boook------------------------------------------------------------ --}}
+      </div>
 
-        <div class="flex flex-col items-center">
-          <h1 class="text-3xl text-white font-semibold">Reservations</h1>
-          <img src="{{ asset('images/why/reservations.png') }}" class="invert w-20">
-          <p id="reservationCount" class="text-3xl font-bold text-center text-white w-full">0</p>
+      <div class="flex justify-center">
+        <div class="inline-flex rounded-md shadow-sm absolute bottom-0" role="group">
+          <span class=" border border-white text-center px-2 text-white"><img src="{{ asset('assets/diagram-3.svg') }}" class="mx-1 invert rounded-sm border inline-block">{{ $i->gear_box }}</span>
+          @foreach ($fuel as $k)
+              @if ($k->id == $i->id_carburant)
+                <span class=" border border-white text-center px-2 text-white"><img src="{{ asset('assets/fuel-pump-fill.svg') }}" class="mx-1 invert rounded-sm border inline-block">{{ $k->fuel_type }}</span>
+              @endif
+          @endforeach
+          @foreach ($model as $m)
+              @if ($m->id == $i->id_model)
+                <span class=" border border-white text-center px-2 text-white">{{ $m->model_name }}</span>
+              @endif
+          @endforeach
         </div>
+      </div>
+
     </div>
+    @endforeach
+  </div>
 
 </section>
 
-<section style="height: 80vh">
-  <h1 class="text-center font-semibold text-white text-5xl">Constomer's <span class="text-red-500">Review</span></h1>
+
+<div class="pt-6 mt-6 space-y-4 border-t border-gray-900"></div>
+
+<section>
+  <h1 class=" mt-4 mb-4 text-3xl font-extrabold leading-none tracking-tight text-center md:text-5xl lg:text-5xl text-white">{{ __('message.Check out our') }}</h1>
+  <h1 class=" mt-4 mb-4 text-3xl font-extrabold leading-none tracking-tight text-center md:text-5xl lg:text-5xl text-red-500">{{ __('message.Gallary') }}</h1>
+
+  <div class="container flex justify-center">
+    <div class="-m-1 flex flex-wrap md:-m-2">
+      <div class="flex w-1/2 flex-wrap">
+        <div class="w-1/2 p-1 md:p-2">
+          <img
+            alt="gallery"
+            class="block h-full w-full rounded-lg object-cover object-center"
+            src="{{ asset('images/Gallary/2.jpg') }}" loading="lazy" />
+        </div>
+        <div class="w-1/2 p-1 md:p-2 ">
+          <img
+            alt="gallery"
+            class="block h-full w-full rounded-lg object-cover object-center"
+            src="{{ asset('images/Gallary/3.jpg') }}" loading="lazy"  />
+        </div>
+        <div class="w-full p-1 md:p-2">
+          <img
+            alt="gallery"
+            class="block h-full w-full rounded-lg object-cover object-center"
+            src="{{ asset('images/Gallary/5.jpg') }}" loading="lazy"  />
+        </div>
+      </div>
+      <div class="flex w-1/2 flex-wrap">
+        <div class="w-full p-1 md:p-2">
+          <img
+            alt="gallery"
+            class="block h-full w-full rounded-lg object-cover object-center"
+            src="{{ asset('images/Gallary/1.jpg') }}" loading="lazy" />
+        </div>
+        <div class="w-1/2 p-1 md:p-2">
+          <img
+            alt="gallery"
+            class="block h-full w-full rounded-lg object-cover object-center"
+            src="{{ asset('images/Gallary/4.jpg') }}" loading="lazy"  />
+        </div>
+        <div class="w-1/2 p-1 md:p-2">
+          <img
+            alt="gallery"
+            class="block h-full w-full rounded-lg object-cover object-center"
+            src="{{ asset('images/Gallary/6.jpeg') }}" loading="lazy" " />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="pt-6 mt-6 space-y-4 border-t border-gray-900"></div>
+
+<section>
+  <h1 class=" mt-4 mb-4 text-3xl font-extrabold leading-none tracking-tight text-center md:text-5xl lg:text-5xl text-white">{{ __('message.Why choosing Us') }} </h1>
   
-  <div class=" grid grid-cols-3 gap-4 mb-4" style="margin-top: 50px">
-
-
-    <div class="flex flex-col items-center">
-        <div div class="w-full max-w-sm bg-white border rounded-sm py-4 px-4 shadow dark:bg-gray-800 dark:border-gray-700">
-
-          <div class="border-gray-300 border py-3">
-            <div class="flex flex-col items-center pb-10">
-              <img class="w-24 h-24 mb-3 rounded-full shadow-lg" src="{{ asset('images/photo.jpg') }}" alt="User"/>
-              <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">Bonnie Green</h5>
-              <span class="text-sm text-gray-500 dark:text-gray-400">Visual Designer</span>
-              {{-- Comment --}}
-              <div class="flex mt-4 space-x-3 md:mt-6 text-center">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo, est.</div>
-              <div class="my-3 flex rate">
-                <img src="{{ asset('images/star.png') }}" class="w-5">
-                <img src="{{ asset('images/star.png') }}" class="w-5">
-                <img src="{{ asset('images/star.png') }}" class="w-5">
-                <img src="{{ asset('images/star.png') }}" class="w-5">
-                <img src="{{ asset('images/star.png') }}" class="w-5">
-              </div>
-            </div>
-          </div>
-
-        </div>
-    </div>
-    
-    <div class="flex flex-col items-center">
-        <div div class="w-full max-w-sm bg-white border rounded-sm py-4 px-4 shadow dark:bg-gray-800 dark:border-gray-700">
-
-          <div class="border-gray-300 border py-3">
-            <div class="flex flex-col items-center pb-10">
-              <img class="w-24 h-24 mb-3 rounded-full shadow-lg" src="{{ asset('images/photo.jpg') }}" alt="User"/>
-              <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">Bonnie Green</h5>
-              <span class="text-sm text-gray-500 dark:text-gray-400">Visual Designer</span>
-              {{-- Comment --}}
-              <div class="flex mt-4 space-x-3 md:mt-6 text-center">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo, est.</div>
-              <div class="my-3 flex rate">
-                <img src="{{ asset('images/star.png') }}" class="w-5">
-                <img src="{{ asset('images/star.png') }}" class="w-5">
-                <img src="{{ asset('images/star.png') }}" class="w-5">
-                <img src="{{ asset('images/star.png') }}" class="w-5">
-                <img src="{{ asset('images/star.png') }}" class="w-5">
-              </div>
-            </div>
-          </div>
-
-        </div>
-    </div>
-
-    <div class="flex flex-col items-center">
-        <div div class="w-full max-w-sm bg-white border rounded-sm py-4 px-4 shadow dark:bg-gray-800 dark:border-gray-700">
-
-          <div class="border-gray-300 border py-3">
-            <div class="flex flex-col items-center pb-10">
-              <img class="w-24 h-24 mb-3 rounded-full shadow-lg" src="{{ asset('images/photo.jpg') }}" alt="User"/>
-              <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">Bonnie Green</h5>
-              <span class="text-sm text-gray-500 dark:text-gray-400">Visual Designer</span>
-              {{-- Comment --}}
-              <div class="flex mt-4 space-x-3 md:mt-6 text-center">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo, est.</div>
-              <div class="my-3 flex rate">
-                <img src="{{ asset('images/star.png') }}" class="w-5">
-                <img src="{{ asset('images/star.png') }}" class="w-5">
-                <img src="{{ asset('images/star.png') }}" class="w-5">
-                <img src="{{ asset('images/star.png') }}" class="w-5">
-                <img src="{{ asset('images/star.png') }}" class="w-5">
-              </div>
-            </div>
-          </div>
-
-        </div>
-    </div>
-
-
-
-    
+  <div class="flex justify-center">
+    <p class="text-center text-gray-300" style="width: 50%">Discover the advantages of choosing us for your car rental needs.</p>
   </div>
 
+  <div class="mt-4">
+    <div class=" grid grid-cols-3 gap-4 mb-4">
+      <div class="flex flex-col items-center">
+        <h1 class="text-3xl text-white font-thin">{{ __('message.Clients') }}</h1>
+          <img src="{{ asset('images/why/clients.png') }}" class="invert w-20">
+          <p id="clientsCount" class="text-3xl font-thin text-center text-white w-full">0</p>
+      </div>
+  
+      <div class="flex flex-col items-center">
+        <h1 class="text-3xl text-white font-thin">{{ __('message.Cars') }}</h1>
+        <img src="{{ asset('images/why/cars.png') }}" class="invert w-20">
+        <p id="carStockCount" class="text-3xl font-thin text-center text-white w-full">0</p>
+      </div>
+
+      <div class="flex flex-col items-center">
+        <h1 class="text-3xl text-white font-thin">{{ __('message.Reservations') }}</h1>
+        <img src="{{ asset('images/why/reservations.png') }}" class="invert w-20">
+        <p id="reservationCount" class="text-3xl font-thin text-center text-white w-full">0</p>
+      </div>
+  </div>
+  </div>
+
+  <input type="hidden" id="count_cars" value="{{ $Count_cars }}">
+  <input type="hidden" id="count_clients" value="{{ $Count_clients }}">
+  <input type="hidden" id="count_res" value="{{ $Count_res }}">
 </section>
 
 
 
 @endsection
+
+

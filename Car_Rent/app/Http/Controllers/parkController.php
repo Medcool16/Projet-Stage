@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 class parkController extends Controller
 {
     public function park_show(){
-        $data = car::where('status','available')->paginate(8);
+        $data = car::where('status','available')->paginate(5);
         $mark = mark::all();
         $model = modell::all();
         $fuel = fuel::all();

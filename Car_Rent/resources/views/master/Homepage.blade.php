@@ -1,119 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="Css/homepage-nav-color.css"> 
+     <link rel="icon" type="image/x-icon" href="{{ asset('images/logo.png') }}">
+    <link rel="stylesheet" href="{{ asset('Css/homepage-nav-color.css') }}"> 
     <title>@yield('title')</title>
 
     @yield('style')
     <style>
-      .z-40{
+      /* .z-40{
         z-index: 0;
-      }
+      } */
+      
     </style>
 
 </head>
 
 <body>
 
-  <nav class="bg-transparent w-full relative top-0 left-0 " style="z-index: 100">
-    <div class="max-w-screen-sm flex flex-wrap items-center justify-between mx-auto p-4">
-    <a href="#" class="flex items-center">
-        <img src="#" class="h-8 mr-3" alt="">
-        <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">LOGO</span>
-    </a>
-    <div class="flex md:order-2">
-      <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden  focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
-        <span class="sr-only">Open main menu</span>
-        <img src="{{ asset('assets/list.svg') }}" class="invert w-10">
-    </button>
-  </div>
-    <div class="flex md:order-2">
-        {{------------------------ Register ------------------------------}}
+  <nav class="bg-transparent w-full sticky left-0 flex mx-4 space-x-2 justify-center" style="z-index: 100;">
+      <div class=" flex justify-center items-center" style="width: 10%; height: 10vh;">
+          <a href="{{ route('homie') }}" class="flex items-center ml-4">
+            <img src="{{ asset('images/logo.png') }}" class="mr-3 w-20" alt="">
+            <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">RenoCar</span>
+          </a>
+      </div>
 
 
-              @if (session()->has('member'))
-                  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-                    <div class="flex items-center md:order-2">
-                      <button type="button" class="flex mr-3 text-sm bg-blue-900 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom" style="margin-top: -11px;">
-                        <span class="sr-only">Open user menu</span>
-                        <img class="w-8 h-8 rounded-full invert" src="{{ asset('assets/person-circle.svg') }}">
-                      </button>
-                      <!-- Dropdown menu -->
-                      <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600 ml-auto" id="user-dropdown">
-                        <div class="px-4 py-3">
-                          <span class="block text-sm text-gray-900 dark:text-white">{{ session('member') }} {{ session('nickname') }}</span>
-                          <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">{{ session('email') }}</span>
-                        </div>
-                        <ul class="py-2" aria-labelledby="user-menu-button">
-                          <li>
-                            <a href="{{ route('desClient') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
-                          </li>
-                        </ul>
-                      </div>
-                      <button data-collapse-toggle="navbar-user" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-user" aria-expanded="false">
-                        <span class="sr-only">Open main menu</span>
-                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
-                        </svg>
-                      </button>
+      <div class=" flex justify-center items-center" style="width: 70%; height: 10vh;">
+            <ul class="hidden lg:flex navbar p-4 mt-4 font-medium text-white md:flex-row md:space-x-8 ">
+              <li>
+                <a href="{{ route('homie') }}" id="home" class="block py-2 pl-3 pr-4 text-white rounded md:bg-transparent md:p-0 " aria-current="page">Home</a>
+              </li>
+              <li>
+                <a href="{{ url('/park') }}" class="block py-2 pl-3 pr-4 text-white rounded md:bg-transparent md:p-0">Park</a>
+              </li>
+              <li>
+                <a href="{{ url('/reservation') }}" class="block py-2 pl-3 pr-4 text-white rounded md:bg-transparent md:p-0">Reservation</a>
+              </li>
+              <li>
+                <a href="{{ route('review') }}" class="block py-2 pl-3 pr-4 text-white rounded md:bg-transparent md:p-0">Reviews</a>
+              </li>
+              <li>
+                <a href="{{ route('about') }}" class="block py-2 pl-3 pr-4 text-white rounded md:bg-transparent md:p-0">About</a>
+              </li>
+              <li>
+                <a href="{{ route('contact') }}" class="block py-2 pl-3 pr-4 text-white rounded md:bg-transparent md:p-0">Contact</a>
+              </li>
+            </ul>
+
+            <button class="lg:hidden text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-6 w-6">
+                  <path fill-rule="evenodd" d="M2 4.5A.5.5 0 012.5 4h15a.5.5 0 010 1h-15a.5.5 0 01-.5-.5zM2 9.5A.5.5 0 012.5 9h15a.5.5 0 010 1h-15a.5.5 0 01-.5-.5zM2 14.5A.5.5 0 012.5 14h15a.5.5 0 010 1h-15a.5.5 0 01-.5-.5z" clip-rule="evenodd" />
+              </svg>
+          </button>
+      </div>
+
+
+      
+      {{------------------------ Register ------------------------------}}
+      @if (session()->has('member'))
+
+            <div class=" flex justify-end" style="width: 15%; height: 10vh;">
+              <div class="flex">
+                <div class="flex items-center pt-3">
+                  <button type="button" class="flex items-center text-sm bg-gray-800 rounded-md p-3 mt-4 md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom" style="margin-top: -11px;">
+                    <span class="text-white  mr-2">My Account</span>
+                    <img class="w-8 h-8 rounded-full invert" src="{{ asset('assets/person-circle.svg') }}">
+                  </button>
+                  <!-- Dropdown menu -->
+
+                  <div class="z-50 overflow-hidden my-4 text-base bg-gray-800 divide-y rounded-sm w-36 mr-4 shadow 0 ml-auto " id="user-dropdown" style="display:none;">
+                    
+                    <div class="px-4 py-3 hover:bg-gray-600">
+                      <a href="{{ route('viewProfile',session('member')) }}" class="block text-sm text-white ">profile</a>
                     </div>
+
+                    <ul class="py-3 hover:bg-gray-600" aria-labelledby="user-menu-button">
+                      <li>
+                        <a href="{{ route('desClient') }}" class="block px-4 text-sm text-white  ">Sign out</a>
+                      </li>
+                    </ul>
                   </div>
-              {{-- toast --}}
-                  
 
-                    <div id="toast-default" class="flex items-center w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" role="alert" style="position: absolute;top: 100px; right: 10px">
-                        <div class="ml-3 text-sm font-normal">Welcome, {{ session('member')  }} {{ session('nickname') }}</div>
-                        <button type="button" class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" data-dismiss-target="#toast-default" aria-label="Close">
-                            <span class="sr-only">Close</span>
-                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-                            </svg>
-                        </button>
-                    </div>
-          {{--  --}}
+
+                </div>
+              </div>
+            </div>
             
               @else
-
-                  <a href="{{ route('registerClient') }}" class=" mx-4 text-white font-bold border p-1 px-3 rounded-full hover:bg-white hover:text-gray-900">Sign in</a>
-                  <a href="{{ route('logClient') }}" class="text-white font-bold border p-1 px-3 rounded-full hover:bg-white hover:text-gray-900">Login</a>
-                  
+              <div class="flex justify-center items-center sm:w-96" style="width: 25%; height: 10vh;">
+                  <a href="{{ route('registerClient') }}" class=" mx-4 text-white font-bold border p-1 px-3 rounded-md hover:bg-white hover:text-gray-900 transition delay-700 duration-200 ease sm:text-sm">Sign in</a>
+                  <a href="{{ route('logClient') }}" class="text-white font-bold border p-1 px-3 rounded-md hover:bg-white hover:text-gray-900  transition delay-700 duration-200 ease sm:text-sm">Login</a>
+              </div>
               @endif
+              
 
         {{------------------------ Register ------------------------------}}
-
-
-        <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
-          
-      </button>
-    </div>
-
-    <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-      <ul class="flex flex-col p-4 mt-4 font-medium border border-gray-100 rounded-lg text-white md:flex-row md:space-x-8 md:mt-0 md:border-0">
-        <li>
-          <a href="{{ route('homie') }}" class="block py-2 pl-3 pr-4 text-white rounded md:bg-transparent md:p-0 " aria-current="page">Home</a>
-        </li>
-        <li>
-          <a href="{{ url('/park') }}" class="block py-2 pl-3 pr-4 text-white rounded md:bg-transparent md:p-0">Park</a>
-        </li>
-        <li>
-          <a href="{{ url('/reservation') }}" class="block py-2 pl-3 pr-4 text-white rounded md:bg-transparent md:p-0">Reservation</a>
-        </li>
-        <li>
-          <a href="#" class="block py-2 pl-3 pr-4 text-white rounded md:bg-transparent md:p-0">Agencies</a>
-        </li>
-        <li>
-          <a href="#" class="block py-2 pl-3 pr-4 text-white rounded md:bg-transparent md:p-0">About</a>
-        </li>
-        <li>
-          <a href="#" class="block py-2 pl-3 pr-4 text-white rounded md:bg-transparent md:p-0">Contact</a>
-        </li>
-      </ul>
-    </div>
-    </div>
   </nav>
   
 
@@ -121,88 +107,115 @@
   @yield('content')
 </div>
 
-
-<footer class="bg-gray-900">
-  <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-      <div class="md:flex md:justify-between">
-        <div class="mb-6 md:mb-0">
-            <a href="" class="flex items-center">
-                <img src="" class="h-8 mr-3" alt="" />
-                <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">LOGO</span>
-            </a>
-
-            <div style="margin: 10%;">
-              <h1 class="text-sm font-semibold uppercase text-white" style="margin: 23px 73px">Our sponsoers</h1>
-              <img src="{{ asset('images/brand/item.png') }} " style="width: 50%;">
-            </div>
-
-        </div>
-        <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
-            <div class="text-center">
-                <h2 class="mb-6 text-sm font-semibold uppercase text-white">Useful links</h2>
-                <ul class="text-gray-400 font-medium">
-                    <li class="mb-4">
-                        <a href="#" class="hover:underline">Home</a>
-                    </li>
-                    <li class="mb-4">
-                        <a href="#" class="hover:underline">Park</a>
-                    </li>
-                    <li class="mb-4">
-                        <a href="#" class="hover:underline">Specials</a>
-                    </li>
-                    <li class="mb-4">
-                        <a href="#" class="hover:underline">Agencies</a>
-                    </li>
-                    <li class="mb-4">
-                        <a href="#" class="hover:underline">About</a>
-                    </li>
-                    <li class="mb-4">
-                        <a href="#" class="hover:underline">Contact</a>
-                    </li>
-                    
-                </ul>
-            </div>
-          
-          
-            <div class="text-center">
-                <h2 class="mb-6 text-sm font-semibold uppercase text-white">Legal</h2>
-                <ul class="text-gray-500 dark:text-gray-400 font-medium">
-                    <li class="mb-4">
-                        <a href="#" class="hover:underline">Privacy Policy</a>
-                    </li>
-                    <li>
-                        <a href="#" class="hover:underline">Terms &amp; Conditions</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+<!-- Footer container -->
+<footer
+  class="bg-gray-900 text-center text-white w-full">
+  <div
+    class="flex items-center justify-between border-b-2 border-gray-700 p-6">
+    <div class="mr-12 hidden lg:block">
+      <span>Get in touch with us:</span>
     </div>
-    <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-    <div class="sm:flex sm:items-center sm:justify-between">
-        <span class="text-sm  sm:text-center text-gray-400">© 2023 <a href="#" class="hover:underline">CarZella™</a>. All Rights Reserved.
-        </span>
-        <div class="flex mt-4 space-x-5 sm:justify-center sm:mt-0">
-            <a href="#" class="text-gray-500 hover:text-gray-900">
-                <img src="{{ asset('assets/facebook.svg') }}" class="invert" >
-                
-            </a>
-            <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
-              <img src="{{ asset('assets/whatsapp.svg') }}" class="invert" >
-            </a>
+    <!-- Social network icons container -->
 
-            <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
-              <img src="{{ asset('assets/twitter.svg') }}" class="invert" >
-            </a>
-
-            <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
-              <img src="{{ asset('assets/linkedin.svg') }}" class="invert" >
-            </a>
-        </div>
+    <div class="flex justify-center">
+      <a href="#!" class="mr-6 text-neutral-600">
+        <img src="{{ asset('assets/facebook.svg') }}" class="w-6 invert">
+      </a>
+      <a href="#!" class="mr-6 text-neutral-600">
+        <img src="{{ asset('assets/twitter.svg') }}" class="w-6 invert">
+      </a>
+      <a href="#!" class="mr-6 text-neutral-600">
+        <img src="{{ asset('assets/linkedin.svg') }}" class="w-6 invert">
+      </a>
     </div>
+  </div>
+
+  
+  <div class=" py-10 text-center mt-4">
+    <div class="grid-1  gap-8 md:grid-cols-2 flex justify-between">
+      <!-- Tailwind Elements section -->
+      <div class="" style="width:35%">
+        <h6 class="mb-4 flex text-3xl items-center justify-center font-semibold">
+          <img src="{{ asset('images/logo.png') }}" class="mr-3 w-20" alt="">
+          RenoCar
+        </h6>
+        <p class="mx-4">
+          Embark on extraordinary journeys with our exceptional car rental services, designed to enhance every mile of your adventure.
+        </p>
+      </div>
+
+      
+      <!-- Useful links section -->
+      <div class="">
+        <h6
+          class="mb-2 font-semibold uppercase">
+          Menu
+        </h6>
+        <div class="flex flex-wrap justify-center space-x-4 w-56">
+          <p class="mb-2">
+            <a href="#home" class="text-neutral-600 hover:underline"
+              >Home</a
+            >
+          </p>
+          <p class="mb-2">
+            <a href="{{ url('/park') }}" class="text-neutral-600 hover:underline"
+              >Park</a
+            >
+          </p>
+          <p class="mb-2">
+            <a href="{{ url('/reservation') }}" class="text-neutral-600 hover:underline"
+              >Reservation</a
+            >
+          </p>
+          <p class="mb-2">
+            <a href="{{ route('review') }}" class="text-neutral-600 hover:underline"
+              >Reviews</a
+            >
+          </p>
+          <p class="mb-2">
+            <a href="{{ route('contact') }}" class="text-neutral-600 hover:underline"
+              >Contact</a
+            >
+          </p>
+          <p class="mb-2">
+            <a href="{{ route('about') }}" class="text-neutral-600 hover:underline"
+              >About us</a
+            >
+          </p>
+        </div>
+      </div>
+      <!-- Contact section -->
+      <div style="margin-right: 100px">
+        <h6
+          class="mb-4 flex justify-center font-semibold uppercase">
+          Contact
+        </h6>
+        <div class="flex flex-col">
+          <p class="mb-4 flex">
+            <img src="{{ asset('assets/geo-alt-fill.svg') }}" class="mx-2 invert">
+            255-R Ouarzazate, Morocco
+          </p>
+          <p class="mb-4 flex">
+            <img src="{{ asset('assets/envelope-fill.svg') }}" class="mx-2 invert">
+            Mohamed16Slaoui@gmail.com
+          </p>
+          <p class="mb-4 flex">
+            <img src="{{ asset('assets/telephone-fill.svg') }}" class="mx-2 invert">
+            +212-680-615618
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Copyright section-->
+  <div class="bg-neutral-200 mt-4 p-6 text-center">
+    <span>© 2023 Copyright:</span>
   </div>
 </footer>
 
 
+@vite('resources/js/app.js')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/countup.js"></script>
 <script src="Js/homepage-nav.js"></script>

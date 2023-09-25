@@ -1,12 +1,62 @@
-body{
-    width: 100%;
-    /* height: 200vh; */
-    background-color: rgb(238, 181, 181);
-    /* background-image:linear-gradient(rgba(0, 8, 51, 0.932),rgba(160, 47, 134, 0.795)),url('../images/footer.png') ; */
-    background-image: linear-gradient(rgb(33 34 35 / 93%),rgb(27 27 27 / 80%)),url(../images/footer.png);
-    background-size: 100%;
-    
+*::selection{
+  background-color: rgba(216, 104, 104, 0.768);
+  color: white;
 }
+
+/* ---------------------Scroll bar--------------------- */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #6c6c6c; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #7e3030; 
+}
+/* ---------------------------------------------------- */
+
+
+body {
+  overflow-x: hidden;
+  background-color: black;
+  position: relative;
+}
+
+.navbar li a::after{
+  content: "";
+  display: block;
+  height: 1px;
+  width: 100%;
+  background-color: white;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease;
+}
+
+.navbar li a:hover::after{
+  transform: scaleX(1);
+}
+
+.navbar li a{
+  font-size: 18px;
+}
+
+.navbar li a:hover{
+  color: rgb(255, 64, 64);
+  transition: 0.5s ease-in-out;
+}
+
+
 
 .slogan{
     left: 100px;
@@ -51,11 +101,6 @@ body{
   margin: 0px 10px;
 }
 
-.countup{
-  margin-top: -120px; 
-  border-radius: 0px 0px 15px 15px; 
-  background-color: #ffffff5c;
-}
 
 .rate img{ 
   margin: 5px;
@@ -66,5 +111,145 @@ body{
   background-color: #f0f8ffa6;
   border-radius: 15px;
   padding: 20px;
+}
+
+/* ---------------------------------------------- */
+
+.box-container{
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    position: relative;
+    min-height: 80vh;
+}
+
+.content{
+  padding: 2rem 4rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  max-width: 69rem;
+  padding-left: 15rem;
+  background-color: rgb(213 35 35);
+  clip-path: polygon(21% 0, 100% 0, 100% 100%, 0 100%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.left-side{
+  clip-path: polygon(0 0, 55% 0, 100% 100%, 0 100%);;
+}
+
+.right-side{
+  clip-path: polygon(0 0%, 100% 0, 100% 100%, 30% 100%);
+}
+
+
+.img-holder img{
+  filter: invert(42%) sepia(80%) saturate(3537%) hue-rotate(333deg) brightness(103%) contrast(128%);
+}
+
+/* .test{
+  background-image: url(./../images/footer2.png);
+  background-size: contain;
+} */
+
+
+
+/* ----------------------Animation--------------------------- */
+
+
+#title h1 {
+  animation: fade 4s ease;
+}
+
+
+@keyframes fade {
+  0%{
+    opacity: 0;
+    transform: translateX(500px);
+  }
+  50%{
+    opacity: 1;
+    transform: translateX(0px);
+  }
+
+  100%{
+    transition: all 5s ease ;
+  }
+}
+/* ----------------------------------------------------------- */
+.animated {
+  opacity: 0;
+  animation: fadeInUp 2.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+  0%{
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  50%{
+    opacity: 1;
+    transform: translateY(0px);
+  }
+
+  100%{
+    opacity: 1;
+  }
+}
+
+
+
+/* ----------------------------------------------------------- */
+.specials{
+  animation: pop 1.5s ease;
+}
+
+
+@keyframes pop {
+  0%{
+    opacity: 0;
+    transform: scale(50%);
+  }
+
+  80%{
+    transform: scale(100%);
+  }
+
+  100%{
+    opacity: 1;
+    transition: all 0.1s ease-out ;
+  }
+}
+
+/* ----------------------------------------------------------- */
+
+.text_animation{
+  opacity: 0;
+  animation: from-right 2.5s ease 0.2s forwards;
+}
+
+@keyframes from-right {
+  0%{
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  50%{
+    transform: translateX(0px);
+  }
+
+  100%{
+    opacity: 1;
+  }
 }
 

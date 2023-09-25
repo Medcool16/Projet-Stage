@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/x-icon" href="{{ asset('images/logo.png') }}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.css" rel="stylesheet" /> 
     <title>Login</title>
     <style>
@@ -15,61 +16,51 @@
 </head>
 <!-- component -->
 <body>
-  <section class="flex items-stretch text-white" style="height: 100vh;">
-      <div class="lg:flex w-1/2 hidden bg-gray-500 bg-no-repeat bg-cover relative" style="background-image: linear-gradient(rgb(62 110 158 / 84%),rgb(2 18 58 / 13%)),url(../images/form.jpg);">
-          <div class="w-full px-24 z-10">
-              {{-- <h1 class="text-5xl text-center font-bold tracking-wide py-4">Keep it special</h1> --}}
-          </div>
+  <section>
+    <div class="relative flex justify-center items-center">
+      <img src="{{ asset('images/bg.jpg') }}" class="w-full h-screen">
+
+      <div class="absolute z-10 rounded-lg" style="width: 45%; height: 80vh; background-color: rgba(82, 82, 82, 0.304)">
+
+        <h1 class="text-white font-bold text-5xl text-center my-4">Login</h1>
+
+        <form class="space-y-6 flex flex-col" action="{{ route('Connect_client') }}">
+          @csrf
+            <div>
+                <label for="user" class="block mb-2 text-sm font-medium text-white" style="width: 75% ; margin: 5px auto">Username</label>
+                <input type="text" name="username" id="user" class="bg-transparent border text-white border-gray-300  text-sm   focus:ring-red-500 focus:border-red-500 block p-2.5" placeholder="your username" required style="width: 75% ; margin: 0 auto">
+            </div>
+            <div>
+                <label for="password" class="block mb-2 text-sm font-medium text-white" style="width: 75% ; margin: 5px auto">Your password</label>
+                <input type="password" name="password" id="password" placeholder="password" class="bg-transparent border border-gray-300 text-white text-sm  focus:ring-red-500 focus:border-red-500 block w-full p-2.5" required style="width: 75% ; margin: 0 auto">
+            </div>
+
+            @if ($errors->any())
+            <div class="p-4 mb-4 text-sm rounded-lg bg-red-400 shadow text-center text-white" style="width: 50% ; margin:0 auto; margin-top: 5%">
+              <ul>
+                  @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                  @endforeach
+              </ul>
+            </div>
+        @endif
+
+        <div class="flex justify-center">
+          <button type="submit" class="text-white mt-2 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Sign In</button>
+        </div>
+
+        <div class="flex justify-center text-sm font-medium text-gray-400">Not registered?  &nbsp;
+          <a href="{{ route('registerClient') }}" class="text-white text-center text-sm font-thin underline"> Create new account</a>
+        </div>
+      </form>
+
+      <div class="flex justify-center" style="margin-top: 20px">
+        <a href="{{ url()->previous() }}" class="text-white text-center text-sm font-thin bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 p-2 rounded-lg shadow">Return</a>
       </div>
-
-
-      <div class="lg:w-1/2 w-full flex items-center justify-center md:px-16 px-0 z-0" style="background-image: linear-gradient(rgb(20 37 53 / 89%),rgb(52 51 142 / 42%)),url(../images/footer.png);">
-          <div class="absolute lg:hidden z-10 inset-0 bg-gray-500 bg-no-repeat bg-cover items-center" >
-          </div>
-          <div class=" z-20">
-              <div class="flex items-center">
-                <div class="bg-red-300 ">
-                  <a href="{{ route('homie') }}" class="my-6 p-1">Back &RightArrow;</a>
-                </div>
-                <div class=" " style="margin: 0px 130px">
-                  <h1 class="my-6 text-center text-3xl font-bold">Login</h1>
-                </div>
-
-              </div>
-              <form class="space-y-6" action="{{ route('Connect_client') }}">
-                @csrf
-                  <div>
-                      <label for="user" class="block mb-2 text-sm font-medium text-white">Username</label>
-                      <input type="text" name="username" id="user" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="your username" required>
-                  </div>
-                  <div>
-                      <label for="password" class="block mb-2 text-sm font-medium text-white">Your password</label>
-                      <input type="password" name="password" id="password" placeholder="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                  </div>
-                  <div class="flex justify-between">
-                      <a href="#" class="text-sm text-white hover:underline">Lost Password?</a>
-                  </div>
-
-                  @if ($errors->any())
-                  <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                  </div>
-              @endif
-
-                <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login to your account</button>
-                <div class="text-sm font-medium text-gray-900">
-                    Not registered? <a href="{{ route('registerClient') }}" class="text-white hover:underline">Create account</a>
-                </div>
-
-                
-              
-          </div>
-      </div>
-  </section>
+        
+    </div>
+    
+    </section>
 </body>
 
 

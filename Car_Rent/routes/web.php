@@ -1,13 +1,12 @@
 <?php
 
-use Illuminate\Routing\Route as RoutingRoute;
+use App\Models\agency;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Routing\Route as RoutingRoute;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 
-
-
-// --------------Admin-------------------------
 Route::get('/admin', function () {
     return view('Admin.admin_login');
 })->name('error_show');
@@ -15,6 +14,11 @@ Route::get('/admin', function () {
 Route::post('/admin','AdminController@loginAdmin')->name('login');
 
 // -----------------------------------------------------------
+
+Route::middleware(['auth.admin'])->group(function () {
+
+// --------------Admin-------------------------
+
 
 
 // ------------------Destroy session------------------
@@ -71,11 +75,10 @@ Route::delete('/Edit-car/{id}','CarController@remove_car')->name('remove_car');
 
 // --------------Client-------------------------------------
 
-Route::get('/clients',function(){
-    return view('Admin.Client');
-});
 
-Route::get('/clients','ClientController@show_clients');
+Route::get('/clients','ClientController@show_clients')->name('viewClients');
+Route::delete('/Clients/{id}','ClientController@remove_client')->name('remove_client');
+
 
 // --------------------------------------------------------
 
@@ -105,16 +108,24 @@ Route::get('/models','ModellController@show')->name('model_show');
 
 Route::post('/models','ModellController@store')->name('store');
 
-Route::delete('/models/{id}','ModellController@delete')->name('delete');
+Route::delete('/models/{id}','ModellController@delete')->name('delete_model');
 
 // --------------------------------------------------------
 
 
 // --------------Reservation-------------------------------------
 
-Route::get('/reservations',function(){
-    return view('Admin.Reservation');
-});
+Route::get('/reservations','ContractController@show_reservation_a')->name('show_reservations');
+
+Route::get('/reservations/{id}','ContractController@pay')->name('pay');
+
+Route::delete('/cancel-reservation/{id}','ContractController@cancel_reservation')->name('cancel_res');
+
+
+
+
+
+
 
 // --------------------------------------------------------
 
@@ -134,23 +145,13 @@ Route::delete('/fuels/{id}','FuelController@remove_fuel')->name('remove_fuel');
 // --------------------------------------------------------
 
 
-// ------------------------Tables--------------------------------------
-
-//----------------------car--------------------
-Route::get('/admin/tables','CarController@car_table');
-
-// --------------------------------------------------------------
-
-//-----------------------------------Agency----------------------------
-Route::get('/agencies',function(){
-    return view('Admin.Agencie');
 });
 
-Route::get('/agencies','AgencyController@show_agencies')->name('back_agency');
+// ------------------------Hot offers----------------------------------
 
-Route::post('/agencies','AgencyController@store_agency')->name('store_agency');
+// Route::get('/hot-offers','OffersController@hot_offer')->name('offeres');
 
-Route::delete('/agencies','AgencyController@remove_fuel')->name('remove_agency');
+// Route::post('/hot-offers','OffersController@store_offers')->name('store offers');
 
 
 //[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[---- CLIENT SIDE ----]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
@@ -160,13 +161,13 @@ Route::get('/','homeController@show_top_cars')->name('homie');
 
 
 
-Route::get('/park',function(){
-    return view('Client.park');
-});
-
 
 //--------------------Park-------------------
-Route::get('/park','parkController@park_show');
+// Route::get('/park',function(){
+//     return view('Client.park');
+// });
+
+Route::get('/park','parkController@park_show')->name('parking');
 
 
 
@@ -193,23 +194,80 @@ Route::get('/destroyClient','ClientController@destroyClient')->name('desClient')
 // ------------------------------------------------
 
 
+Route::middleware(['auth.client'])->group(function () {
+
+        // --------------------Reservation------------------
+
+            Route::get('/reservation',function(){
+                return view('Client.reservation');
+            });
+
+            Route::get('/reservation','ReservationController@car_show_reserve');
+
+            Route::get('/reservation', 'ReservationController@all')->name('all');
 
 
-// --------------------Reservation------------------
+            Route::get('/compact','ReservationController@compact')->name('compact');
+            Route::get('/economy','ReservationController@economy')->name('economy');
+            Route::get('/SUVs','ReservationController@SUVs')->name('SUVs');
+            Route::get('/van','ReservationController@van')->name('van');
+            Route::get('/minivan','ReservationController@minivan')->name('minivan');
+            Route::get('/covertible','ReservationController@covertible')->name('covertible');
+            Route::get('/sport','ReservationController@sport')->name('sport');
 
-Route::get('/reservation',function(){
-    return view('Client.reservation');
+
+            Route::get('/filter','ReservationController@filter')->name('filter');
+
+
+            Route::get('/Book-{id}','ReservationController@book')->name('book');
+
+            Route::post('/Book','ReservationController@book_info')->name('book_info');
+
+
+
+            Route::post('/Reviews','ReviewController@add_review')->name('add_review');
 });
 
-Route::get('/reservation','ReservationController@car_show_reserve');
-
-Route::get('/reservation', 'ReservationController@all')->name('all');
 
 
-Route::get('/compact','ReservationController@compact')->name('compact');
-Route::get('/economy','ReservationController@economy')->name('economy');
-Route::get('/SUVs','ReservationController@SUVs')->name('SUVs');
-Route::get('/van','ReservationController@van')->name('van');
-Route::get('/minivan','ReservationController@minivan')->name('minivan');
-Route::get('/covertible','ReservationController@covertible')->name('covertible');
-Route::get('/sport','ReservationController@sport')->name('sport');
+// -------------------------------Review-----------------------------------------
+
+
+Route::get('/Reviews','ReviewController@show_review')->name('review');
+
+
+
+
+
+
+// ---------------------------------Contact-------------------------------------
+
+Route::get('/Contact',function(){
+    $agency  = agency::where('id',1)->first();
+    return view('Client.contact', compact('agency'));
+})->name('contact');
+
+
+// ---------------------------------About------------------------------------
+
+
+Route::get('/About',function(){
+    return view('Client.about');
+})->name('about');
+
+
+
+//-------------------------Contract----------------------------------------
+
+Route::get('/Invoice-details/{id}','ContractController@showInvoice')->name('invoice');
+
+
+// --------------------------------------------------------------
+
+
+// -----------------------------Client profile-----------------------------
+
+Route::get('/profile/{id}','ClientController@profile')->name('viewProfile');
+
+Route::put('profile/{id?}','ClientController@update_profile')->name('update_profile');
+// --------------------------------------------------------------

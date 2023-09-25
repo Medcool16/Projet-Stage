@@ -12,21 +12,18 @@ class ModellController extends Controller
 {
     public function show(){
         $mode = modell::all();
-        $data = mark::all();
-        return view('Admin.Model',compact('data','mode'));
+        return view('Admin.Model',compact('mode'));
     }
 
     public function store(Request $req){
 
         $this->validate($req,[
             'model' => 'required',
-            'mark' => 'required'
         ]);
 
         $new_model = new modell();
 
         $new_model->model_name = $req->model;
-        $new_model->id_mark = $req->mark;
 
         $new_model->save();
         return redirect()->route('model_show')->with([
