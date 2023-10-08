@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.css" rel="stylesheet" />
+    {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.css" rel="stylesheet" /> --}}
      <link rel="icon" type="image/x-icon" href="{{ asset('images/logo.png') }}">
     <link rel="stylesheet" href="{{ asset('Css/homepage-nav-color.css') }}"> 
+    @vite('resources/css/app.css')
     <title>@yield('title')</title>
 
     @yield('style')
@@ -153,32 +154,32 @@
         </h6>
         <div class="flex flex-wrap justify-center space-x-4 w-56">
           <p class="mb-2">
-            <a href="#home" class="text-neutral-600 hover:underline"
+            <a href="#home" class="text-neutral-200 hover:underline"
               >Home</a
             >
           </p>
           <p class="mb-2">
-            <a href="{{ url('/park') }}" class="text-neutral-600 hover:underline"
+            <a href="{{ url('/park') }}" class="text-neutral-200 hover:underline"
               >Park</a
             >
           </p>
           <p class="mb-2">
-            <a href="{{ url('/reservation') }}" class="text-neutral-600 hover:underline"
+            <a href="{{ url('/reservation') }}" class="text-neutral-200 hover:underline"
               >Reservation</a
             >
           </p>
           <p class="mb-2">
-            <a href="{{ route('review') }}" class="text-neutral-600 hover:underline"
+            <a href="{{ route('review') }}" class="text-neutral-200 hover:underline"
               >Reviews</a
             >
           </p>
           <p class="mb-2">
-            <a href="{{ route('contact') }}" class="text-neutral-600 hover:underline"
+            <a href="{{ route('contact') }}" class="text-neutral-200 hover:underline"
               >Contact</a
             >
           </p>
           <p class="mb-2">
-            <a href="{{ route('about') }}" class="text-neutral-600 hover:underline"
+            <a href="{{ route('about') }}" class="text-neutral-200 hover:underline"
               >About us</a
             >
           </p>
@@ -209,14 +210,14 @@
   </div>
 
   <!--Copyright section-->
-  <div class="bg-neutral-200 mt-4 p-6 text-center">
+  <div class="bg-gray-700 mt-4 p-6 text-center">
     <span>© 2023 Copyright:</span>
   </div>
 </footer>
 
 
 @vite('resources/js/app.js')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script> --}}
 <script src="https://cdn.jsdelivr.net/npm/countup.js"></script>
 <script src="Js/homepage-nav.js"></script>
 @yield('script')
