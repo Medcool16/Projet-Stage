@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="{{ asset('Css/homepage-nav-color.css') }}"> 
     @vite('resources/css/app.css')
     <title>@yield('title')</title>
-
     @yield('style')
     <style>
       /* .z-40{

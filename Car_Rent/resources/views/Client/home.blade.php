@@ -17,7 +17,7 @@
   <div class="relative overflow-hidden" style="height: 45rem">
        <!-- Item 1 -->
       <div class="hidden duration-700 ease-in-out" data-carousel-item>
-          <img src="{{ asset('images/test.jpg') }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 transition-all duration-300 rounded-lg cursor-pointer filter grayscale hover:grayscale-0 " alt="...">
+          <img src="{{ asset('images/s.jpg') }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 transition-all duration-300 rounded-lg cursor-pointer filter grayscale hover:grayscale-0 " alt="...">
       </div>
       <!-- Item 2 -->
       <div class="hidden duration-700 ease-in-out" data-carousel-item>

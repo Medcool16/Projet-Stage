@@ -6,7 +6,6 @@
     @vite('resources/css/app.css')
     <link rel="icon" type="image/x-icon" href="{{ asset('images/logo.png') }}"> 
     <title>@yield('title')</title>
-
     @yield('style')
 </head>
 <body style="background-color: black">

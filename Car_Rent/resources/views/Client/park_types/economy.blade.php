@@ -9,7 +9,7 @@
             <img src="{{ asset('uploads/'. $i->image) }}" class="w-full h-32 object-contain rounded-t-lg">
         </div>
 
-        <div class="h-44 p-2 rounded-md img-holder" style="width: 50%; background-color: #ffffff1a">
+        <div class="h-54 p-2 rounded-md img-holder" style="width: 50%; background-color: #ffffff1a">
             @foreach ($mark as $k)
                 @if ($i->id_marque === $k->id)
                     <h5 class="mb-2 mx-3 text-2xl font-bold tracking-tight text-white">{{ $i->color }} {{ $k->mark_name }} Car</h5>
